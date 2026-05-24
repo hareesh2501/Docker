@@ -150,7 +150,7 @@ RUN chown -R kkdevops:myusergroup /usr/local/tomcat && \
 USER kkdevops
 
 # Optionally, add custom configuration or application files
-# COPY ./my-app.war /usr/local/tomcat/webapps/
+# COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-app.war
 
 # Expose the port Tomcat runs on
 EXPOSE 8080
