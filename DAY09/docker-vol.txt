@@ -45,19 +45,34 @@ cd spring-boot-mongo-docker-kkfunda
 step 3: see the docker file "cat Dockerfile"
 -------
 
-FROM openjdk:8-alpine
-
-# Required for starting application up.
-RUN apk update && apk add /bin/sh
+FROM eclipse-temurin:8-jre-alpine
 
 RUN mkdir -p /opt/app
-ENV PROJECT_HOME /opt/app
+
+ENV PROJECT_HOME=/opt/app
 
 COPY target/spring-boot-mongo-1.0.jar $PROJECT_HOME/spring-boot-mongo.jar
 
 WORKDIR $PROJECT_HOME
+
 EXPOSE 8080
-CMD ["java" ,"-jar","./spring-boot-mongo.jar"]
+
+CMD ["java","-jar","spring-boot-mongo.jar"]
+
+FROM eclipse-temurin:8-jre-alpine
+#Uses Java 8 runtime on Alpine Linux.
+RUN mkdir -p /opt/app
+#Creates the application directory.
+ENV PROJECT_HOME=/opt/app
+#Defines an environment variable.
+COPY target/spring-boot-mongo-1.0.jar ...
+#Copies the JAR file into the image.
+WORKDIR $PROJECT_HOME
+#Sets /opt/app as the working directory.
+EXPOSE 8080
+#Documents that the application listens on port 8080.
+CMD [...]
+#Starts the Spring Boot application.
 
 
 step 4: Build the arifact
