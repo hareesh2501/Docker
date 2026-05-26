@@ -255,9 +255,9 @@ docker volume ls
 How to create a conatiner with volumes?
 ---------------------------------------
 
-docker run -d --name springapp --network jionetwork -p 8080:8080 -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 kkdevopsb4/springimage
+docker run -d --name IBBA --network jio -p 8080:8080 -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 image:latest
 
-docker run -d --name mongo -v jiovolume:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo
+docker run -d --name mongo -v jiovolume:/data/db --network jio -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:6.0
 
 
 How to inspect the volume?
